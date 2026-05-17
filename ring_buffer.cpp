@@ -1,17 +1,17 @@
 #include <iostream>
 #include <atomic>
-#include <cstring>  // for memcpy
-#include <thread>   // for std::thread
-#include <array>    // FIX 4: Included array
+#include <cstring>  
+#include <thread>   
+#include <array>   
 
-// 1. Corrected Struct
+// 1.  Struct
 struct can_message {
     uint32_t can_id;
     uint8_t  dlc;
     uint8_t  can_data[8]; 
 };
 
-// 2. Fixed Ringbuffer
+// 2.  Ringbuffer
 class Ringbuffer {
 private:
     const int Size = 1024; 
@@ -39,7 +39,6 @@ public:
     }
 };
 
-// FIX 1: Removed the empty () to avoid the "Most Vexing Parse"
 Ringbuffer myRingBuffer;
 
 // 3. Deserializer (The Producer)
